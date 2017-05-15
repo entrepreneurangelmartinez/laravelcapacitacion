@@ -28,5 +28,21 @@ Se edita el archivo httpd-vhosts
 Ahora hay que hacer una adición a nuestros servidor
 que es nuestra máquina local
 
+Generando nuestras primeras rutas
+
+acceder al archivo web.php 
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+
+Route::get('/about', function () {
+    return "Hi about page";
+});
+
+Route::get('/contact', function () {
+    return "Hi i'm a contact";
+});
 
 
