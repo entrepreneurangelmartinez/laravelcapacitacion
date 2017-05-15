@@ -69,4 +69,9 @@ Y tecleamos el siguiente comando:
 
 php artisan route:list
 
+Información complementaria de Routes
+
+https://laravel.com/docs/5.3/routing
+s
+----------------------------------------
 
