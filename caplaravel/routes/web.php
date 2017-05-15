@@ -23,3 +23,8 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return "Hi i'm a contact";
 });
+
+Route::get('post/{id}',function($id)
+{
+   return "This is post number " . $id;
+});
