@@ -44,5 +44,29 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return "Hi i'm a contact";
 });
+-------------------------------
+Generando rutas pasando parametros
+
+Route::get('post/{id}/{name}',function($id,$name)
+{
+   return "This is post number " . $id . $name;
+});
+-------------------------------
+
+Nombrando rutas para su acceso
+
+Route::get('admin/posts/example',
+    array('as'=>'admin.home', function(){
+        $url=route('admin.home');
+        return "this url is " . $url;
+    }));
+
+Ahora desde consola podemos verificar
+el nombre asignado. 
+
+Nos ubicamos en la dirección root del proyecto.
+Y tecleamos el siguiente comando:
+
+php artisan route:list
 
 
