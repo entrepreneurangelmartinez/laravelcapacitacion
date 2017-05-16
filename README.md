@@ -72,6 +72,9 @@ php artisan route:list
 Información complementaria de Routes
 
 https://laravel.com/docs/5.3/routing
-s
 ----------------------------------------
+
+<p><strong>Controllers</strong></p>
+<p><strong>Generando un controlador con artisan</strong></p>
+<code>php artisan make:controller PostsController</code>
 
