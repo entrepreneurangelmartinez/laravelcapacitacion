@@ -80,3 +80,7 @@ https://laravel.com/docs/5.3/routing
 <br/>
 <p><strong>Generando un controlador con artisan implementando Andamiajes</strong></p>
 <code>php artisan make:controller --resource PostController</code>
+
+<p><strong>Enrutar hacia un controlador</strong></p>
+<code>Route::get('/post','PostController@index');</code>
+<br/>
