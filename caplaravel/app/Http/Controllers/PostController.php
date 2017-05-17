@@ -27,6 +27,7 @@ class PostController extends Controller
     public function create()
     {
         //
+        return "It is the  create method";
     }
 
     /**
@@ -49,6 +50,7 @@ class PostController extends Controller
     public function show($id)
     {
         //
+        return "This is the show method" . $id;
     }
 
     /**

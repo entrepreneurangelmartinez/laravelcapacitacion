@@ -38,3 +38,14 @@ root del proyecto. Y tecleamos el siguiente comando: php artisan route:list Info
 
         return "Its working " . $id;
     }</code>
+
+<br/>
+<p> <strong>Implementando Recursos en nuestro controlador</strong> </p>
+<p>web.php</p>
+<br/>
+<code>Route::resource('posts','PostController')</code>
+
+<br/>
+<p>El siguiente código te genera de manera automática un mapa de rutas predefinidas</p>
+<p>Para comprobar el scaffold realizado utilizamos el comando:</p>
+<code>php artisan route:list</code>
