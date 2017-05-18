@@ -37,6 +37,11 @@ Route::get('admin/posts/example',
 
 // Route::get('/post/{id}','PostController@index');
 
-Route::resource('posts', 'PostController');
+// Route::resource('posts', 'PostController');
 
-Route::get('Post/contact','PostController@contact');
+// Route::get('Post/contact','PostController@contact');
+
+
+
+Route::get('post/{id}','PostController@show_post');
+

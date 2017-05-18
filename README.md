@@ -153,3 +153,44 @@ root del proyecto. Y tecleamos el siguiente comando: php artisan route:list Info
 
 <p>Por último solo queda implementar nuestra nueva ruta hacia la vista en el archivo web.php</p>
 <code>Route::get('Post/contact','PostController@contact');</code>
+
+<br/>
+
+<p><strong>Pasando parametros a las vistas </strong></p><br/>
+
+<p>Para poder pasar parametros a una vista, la manera básica es usando get,sin embargo el comportamiento por post es distinto</p>
+<p>Pasando 1 parámetro</p>
+
+<p>Generamos una vista en la raíz </p>
+<p>post.blade.php</p>
+<code><!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <h1>Post {{$id}}</h1>
+</body>
+
+</html></code>
+
+<p>Generamos una ruta pasando el parametro y enrutandolo hacia la vista</p>
+<p>web.php</p>
+<br/>
+<code>Route::get('post/{id}','PostController@show_post');</code>
+<br>
