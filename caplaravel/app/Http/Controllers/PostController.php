@@ -94,6 +94,7 @@ class PostController extends Controller
 
     public function show_post($id, $name, $password)
     {
-        return view('post',compact('id','name','password'));
+        $people=['Angel',"Martinez","Frias"];
+        return view('post',compact('id','name','password','people'));
     }
 }
