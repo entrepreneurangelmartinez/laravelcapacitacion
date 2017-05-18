@@ -195,3 +195,51 @@ root del proyecto. Y tecleamos el siguiente comando: php artisan route:list Info
 <code>Route::get('post/{id}','PostController@show_post');</code>
 <br>
 <p>Para pasar múltiples parámetros, simplemente se usa el método compact dentro del controlador y se agrega los parámetros a la vista y al enrutador</p>
+<hr>
+<h1>Balde engine</h1>
+<br>
+<p><strong>Generando un masterlayout</strong></p>
+<p>Generamos una carpeta layouts dentro de views</p>
+<p>Creamos un archivo llamado app.blade.php</p>
+<p>Dentro del archivo generamos una plantilla base y usamos @yield para dividir las secciones dinámicas</p>
+<code><!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <div class="class container">
+        @yield('content')
+    </div>
+
+    @yield('footer')
+</body>
+
+</html></code>
+
+<br>
+<p>Para implementar nuestro template simplemente extendemos nuestro archivo base @extends('layouts.app') y procedemos a generar el contenido encerrado en las etiquetas del motor @section('nombredelaseccionenyield') --contenido -- @endsection()
+</p>
+<br>
+<code>@extends('layouts.app')
+@section('content')
+    <h1>Post {{$id}} {{$name}} {{$password}} </h1>
+@endsection()  
+
+@section('footer') 
+<script>alert("Hi Angel")</script>
+@endsection()</code>
