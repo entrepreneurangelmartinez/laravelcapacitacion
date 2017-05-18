@@ -194,3 +194,4 @@ root del proyecto. Y tecleamos el siguiente comando: php artisan route:list Info
 <br/>
 <code>Route::get('post/{id}','PostController@show_post');</code>
 <br>
+<p>Para pasar múltiples parámetros, simplemente se usa el método compact dentro del controlador y se agrega los parámetros a la vista y al enrutador</p>

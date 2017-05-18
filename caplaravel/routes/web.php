@@ -43,5 +43,5 @@ Route::get('admin/posts/example',
 
 
 
-Route::get('post/{id}','PostController@show_post');
+Route::get('post/{id}/{name}/{password}','PostController@show_post');
 
