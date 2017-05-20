@@ -243,3 +243,13 @@ root del proyecto. Y tecleamos el siguiente comando: php artisan route:list Info
 @section('footer') 
 <script>alert("Hi Angel")</script>
 @endsection()</code>
+
+<br/>
+<h1>Migraciones</h1>
+<br>
+<p><strong>Generando nuestra primera migración</strong></p>
+<br>
+<p>Primero se edita el archivo .env con la configuración de la base de datos</p>
+<p>A continuación se ejecuta el comando artesanal para la migración</p>
+<br>
+<code>php artisan migrate</code>
