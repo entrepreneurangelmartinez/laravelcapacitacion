@@ -253,3 +253,12 @@ root del proyecto. Y tecleamos el siguiente comando: php artisan route:list Info
 <p>A continuación se ejecuta el comando artesanal para la migración</p>
 <br>
 <code>php artisan migrate</code>
+<br>
+<p><strong>Creando una migración y haciendo drop sobre ella</strong></p>
+<br>
+<code>php artisan make:migration create_post_table --create="posts"</code>
+<p>Ejecutamos la migracion</p>
+<code>php artisan migration</code>
+<p>Para poder regresar al último punto antes de la migración se usa el siguiente comando</p>
+
+<code>php artisan migrate:rollback</code>
