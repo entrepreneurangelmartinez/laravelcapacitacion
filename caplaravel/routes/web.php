@@ -78,3 +78,9 @@ Route::get('/read' ,function()
     $x=DB::select('select * from posts where id = ?', [1]);
     return $x;
 });
+
+
+Route::get('/update', function() {
+    $updated=DB::update('update posts set title = "Hola actualizado" where id = ?', [1]);
+    return $updated;
+});

@@ -301,10 +301,17 @@ $table->integet('is_admin')->unsigned();
     return "b";
 });</code>
 <br>
-<p>Leer datos desde una tabla</p>
+<p><strong>Leer datos desde una tabla</strong></p>
 <br>
 <code>Route::get('/read' ,function()
 {
     $x=DB::select('select * from posts where id = ?', [1]);
     return $x;
+});</code>
+<br>
+<p><strong>Actualizar datos de una tabla</strong></p>
+<br>
+<code>Route::get('/update', function() {
+    $updated=DB::update('update posts set title = "Hola actualizado" where id = ?', [1]);
+    return $updated;
 });</code>
