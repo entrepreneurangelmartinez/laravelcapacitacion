@@ -11,18 +11,23 @@
 |
 */
 
-/*Route::get('/', function () {
+
+
+
+
+
+Route::post('/', function () {
     return view('welcome');
 });
 
 
-Route::get('/about', function () {
-    return "Hi about page";
-});
+// Route::get('/about', function () {
+//     return "Hi about page";
+// });
 
-Route::get('/contact', function () {
-    return "Hi i'm a contact";
-});
+// Route::get('/contact', function () {
+//     return "Hi i'm a contact";
+// });
 
 Route::get('post/{id}/{name}',function($id,$name)
 {
@@ -33,15 +38,23 @@ Route::get('admin/posts/example',
     array('as'=>'admin.home', function(){
         $url=route('admin.home');
         return "this url is " . $url;
-    }));*/
+    }));
+
+// /admin
+
+// /admin/personas
+// /admin/personas/nuevo
+// /admin/compras
+
+
 
 // Route::get('/post/{id}','PostController@index');
 
-// Route::resource('posts', 'PostController');
+ Route::resource('posts', 'PostController');
 
 // Route::get('Post/contact','PostController@contact');
 
 
 
-Route::get('post/{id}/{name}/{password}','PostController@show_post');
+// Route::get('post/{id}/{name}/{password}','PostController@show_post');
 

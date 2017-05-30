@@ -11,8 +11,8 @@ D:\xampp\apache\conf\extra Se edita el archivo httpd-vhosts
     DocumentRoot "D:/xampp/htdocs/caplaravel/public" ServerName caplaravel.com
 </VirtualHost>
 
-Ahora hay que hacer una adición a nuestros servidor que es nuestra máquina local Generando nuestras primeras rutas acceder al archivo web.php Route::get('/', function () { return view('welcome'); }); Route::get('/about', function () { return "Hi about
-page"; }); Route::get('/contact', function () { return "Hi i'm a contact"; }); ------------------------------- Generando rutas pasando parametros Route::get('post/{id}/{name}',function($id,$name) { return "This is post number " . $id . $name; }); -------------------------------
+Ahora hay que hacer una adición a nuestros servidor que es nuestra máquina local Generando nuestras primeras rutas acceder al archivo web.php Route::get('/', function () { return view('welcome'); }); Route::get('/about', function () { return "Hi aboutpage";
+}); Route::get('/contact', function () { return "Hi i'm a contact"; }); ------------------------------- Generando rutas pasando parametros Route::get('post/{id}/{name}',function($id,$name) { return "This is post number " . $id . $name; }); -------------------------------
 Nombrando rutas para su acceso Route::get('admin/posts/example', array('as'=>'admin.home', function(){ $url=route('admin.home'); return "this url is " . $url; })); Ahora desde consola podemos verificar el nombre asignado. Nos ubicamos en la dirección
 root del proyecto. Y tecleamos el siguiente comando: php artisan route:list Información complementaria de Routes https://laravel.com/docs/5.3/routing ----------------------------------------
 
@@ -258,7 +258,31 @@ root del proyecto. Y tecleamos el siguiente comando: php artisan route:list Info
 <br>
 <code>php artisan make:migration create_post_table --create="posts"</code>
 <p>Ejecutamos la migracion</p>
+<br>
 <code>php artisan migration</code>
+<br>
 <p>Para poder regresar al último punto antes de la migración se usa el siguiente comando</p>
 
 <code>php artisan migrate:rollback</code>
+
+<br>
+<p><strong>Agregar columna a una tabla ya existente usando migraciones</strong></p>
+
+<code>php artisan make:migration add_is_admin_column_to_posts_table --table="posts"</code>
+
+<br>
+<code>
+$table->integet('is_admin')->unsigned();
+ $table->dropColumn('is_admin');
+ </code>
+
+ <br>
+
+ <p>Procedemos a ejecutar la migración</p>
+ <br>
+ <code>php artisan migrate</code>
+
+<br>
+<p>Definiendo valores por defecto</p>
+<br>
+<code>$table->tinyInteger('is_admin')->default('0');</code>

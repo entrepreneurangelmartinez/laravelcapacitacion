@@ -65,6 +65,10 @@
         </style>
     </head>
     <body>
+    <?php
+     $x="<script> alert('Hola mundo');</script>";
+     $num1=4;
+    ?>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -79,7 +83,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Laravel {{$x}}
                 </div>
 
                 <div class="links">
@@ -91,5 +95,33 @@
                 </div>
             </div>
         </div>
+
+        <form class="contact_form" action="#" method="post">
+    <ul>
+        <li>
+             <h2>Formulario de Contacto</h2>
+        </li>
+        <li>
+            <label for="name">Nombre:</label>
+            <input type="text"  placeholder="Neoteo" required />
+        </li>
+        <li>
+            <label for="email">Email:</label>
+            <input type="email" name="email" placeholder="neoteo@neoteo.com" required />
+        </li>
+        <li>
+            <label for="website">Sitio Web:</label>
+            <input type="url" name="web" placeholder="www.neoteo.com" required />
+        </li>
+        <li>
+            <label for="Mensaje">Mensaje:</label>
+            <textarea name="Mensaje" cols="40" rows="6" required ></textarea>
+        </li>
+        <li>
+         <button class="submit" type="submit">Enviar</button>
+        </li>
+    </ul>
+</form>
+
     </body>
 </html>
