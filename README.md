@@ -286,3 +286,7 @@ $table->integet('is_admin')->unsigned();
 <p>Definiendo valores por defecto</p>
 <br>
 <code>$table->tinyInteger('is_admin')->default('0');</code>
+
+<br>
+<p><strong>Borrar todo de la migración</strong></p>
+<code>php artisan migrate:reset</code>
