@@ -290,3 +290,11 @@ $table->integet('is_admin')->unsigned();
 <br>
 <p><strong>Borrar todo de la migración</strong></p>
 <code>php artisan migrate:reset</code>
+
+<br>
+<p><strong>Insertar datos a una tabla</strong></p>
+<br>
+<code>Route::get('/insert', function() { 
+   $x=DB::insert('insert into posts (title, body) values (?, ?)', ['La bamba uno', 'Trump baila música latina por perder apuesta']);
+    return "b";
+});</code>

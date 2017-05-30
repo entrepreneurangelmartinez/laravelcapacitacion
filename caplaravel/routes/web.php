@@ -11,12 +11,13 @@
 |
 */
 
+// use \Illuminate\Database\DatabaseManager;
+// use \Illuminate\Database\Connection;
 
-
-
-
+// use \Illuminate\Support\Facades\DB;
 
 Route::post('/', function () {
+    // DB::insert('insert into posts (title, body) values (?, ?)', ['La bamba uno', 'Trump baila música latina por perder apuesta']);
     return view('welcome');
 });
 
@@ -29,16 +30,16 @@ Route::post('/', function () {
 //     return "Hi i'm a contact";
 // });
 
-Route::get('post/{id}/{name}',function($id,$name)
-{
-   return "This is post number " . $id . $name;
-});
+// Route::get('post/{id}/{name}',function($id,$name)
+// {
+//    return "This is post number " . $id . $name;
+// });
 
-Route::get('admin/posts/example',
-    array('as'=>'admin.home', function(){
-        $url=route('admin.home');
-        return "this url is " . $url;
-    }));
+// Route::get('admin/posts/example',
+//     array('as'=>'admin.home', function(){
+//         $url=route('admin.home');
+//         return "this url is " . $url;
+//     }));
 
 // /admin
 
@@ -50,7 +51,7 @@ Route::get('admin/posts/example',
 
 // Route::get('/post/{id}','PostController@index');
 
- Route::resource('posts', 'PostController');
+//  Route::resource('posts', 'PostController');
 
 // Route::get('Post/contact','PostController@contact');
 
@@ -58,3 +59,15 @@ Route::get('admin/posts/example',
 
 // Route::get('post/{id}/{name}/{password}','PostController@show_post');
 
+
+//Raw sql queries-------------
+
+
+Route::get('/insert', function() {
+
+    //
+
+    
+   $x=DB::insert('insert into posts (title, body) values (?, ?)', ['La bamba uno', 'Trump baila música latina por perder apuesta']);
+    return "b";
+});
