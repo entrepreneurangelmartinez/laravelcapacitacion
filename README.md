@@ -292,6 +292,8 @@ $table->integet('is_admin')->unsigned();
 <code>php artisan migrate:reset</code>
 
 <br>
+<h1>Query</h1>
+<br>
 <p><strong>Insertar datos a una tabla</strong></p>
 <br>
 <code>Route::get('/insert', function() { 
@@ -300,6 +302,7 @@ $table->integet('is_admin')->unsigned();
 });</code>
 <br>
 <p>Leer datos desde una tabla</p>
+<br>
 <code>Route::get('/read' ,function()
 {
     $x=DB::select('select * from posts where id = ?', [1]);
