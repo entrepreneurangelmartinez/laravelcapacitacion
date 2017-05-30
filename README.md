@@ -325,3 +325,32 @@ $table->integet('is_admin')->unsigned();
 });</code>
 <br>
 <h1>Eloquent</h1>
+<br>
+<p><strong>Lectura de datos</strong></p>
+<br>
+<p>Generando un modelo</p>
+<br>
+<code>php artisan make:model PostModel</code>
+<br>
+<p>Para generar un modelo y al mismo tiempo tener una migración ligada es de la siguiente manera:</p>
+<br>
+<code>php artisan make:model PostModel -m</code>
+<br>
+<p>Procedemos a realizar una lectura utilizando Eloquent desde una ruta</p>
+<br>
+<code>Route::get('/readeloquent', function() {
+    $posts=Post::all();
+    foreach ($posts as $post) {
+        # code...
+        // return $post->title;
+    }
+    // return "hello";
+    return $posts;
+});
+
+
+Route::get('/find', function() {
+    $post=Post::find(2);
+    return $post->title;
+});
+</code>

@@ -1,4 +1,5 @@
 <?php
+use App\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -90,5 +91,21 @@ Route::get('deleted', function() {
     $deleted=
     DB::delete('delete from posts where id = ?', [2]);
     return $deleted;
+});
+
+Route::get('/readeloquent', function() {
+    $posts=Post::all();
+    foreach ($posts as $post) {
+        # code...
+        // return $post->title;
+    }
+    // return "hello";
+    return $posts;
+});
+
+
+Route::get('/find', function() {
+    $post=Post::find(2);
+    return $post->title;
 });
 
