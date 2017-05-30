@@ -315,3 +315,11 @@ $table->integet('is_admin')->unsigned();
     $updated=DB::update('update posts set title = "Hola actualizado" where id = ?', [1]);
     return $updated;
 });</code>
+<br>
+<p><strong>Borrar datos de una tabla</strong></p>
+<br>
+<code>Route::get('deleted', function() {
+    $deleted=
+    DB::delete('delete from posts where id = ?', [2]);
+    return $deleted;
+});</code>

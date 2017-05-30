@@ -84,3 +84,10 @@ Route::get('/update', function() {
     $updated=DB::update('update posts set title = "Hola actualizado" where id = ?', [1]);
     return $updated;
 });
+
+
+Route::get('deleted', function() {
+    $deleted=
+    DB::delete('delete from posts where id = ?', [2]);
+    return $deleted;
+});
