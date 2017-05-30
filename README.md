@@ -323,3 +323,5 @@ $table->integet('is_admin')->unsigned();
     DB::delete('delete from posts where id = ?', [2]);
     return $deleted;
 });</code>
+<br>
+<h1>Eloquent</h1>

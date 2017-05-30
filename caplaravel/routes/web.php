@@ -91,3 +91,4 @@ Route::get('deleted', function() {
     DB::delete('delete from posts where id = ?', [2]);
     return $deleted;
 });
+
