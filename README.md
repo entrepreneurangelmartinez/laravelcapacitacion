@@ -298,3 +298,10 @@ $table->integet('is_admin')->unsigned();
    $x=DB::insert('insert into posts (title, body) values (?, ?)', ['La bamba uno', 'Trump baila música latina por perder apuesta']);
     return "b";
 });</code>
+<br>
+<p>Leer datos desde una tabla</p>
+<code>Route::get('/read' ,function()
+{
+    $x=DB::select('select * from posts where id = ?', [1]);
+    return $x;
+});</code>

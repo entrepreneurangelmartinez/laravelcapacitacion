@@ -71,3 +71,10 @@ Route::get('/insert', function() {
    $x=DB::insert('insert into posts (title, body) values (?, ?)', ['La bamba uno', 'Trump baila música latina por perder apuesta']);
     return "b";
 });
+
+
+Route::get('/read' ,function()
+{
+    $x=DB::select('select * from posts where id = ?', [1]);
+    return $x;
+});
