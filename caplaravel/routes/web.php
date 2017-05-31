@@ -149,3 +149,16 @@ Route::get('/updateeloquent', function() {
 });
 
 
+Route::get('/deleteeloquent', function() {
+    $post=Post::find(1);
+    $post->delete();
+});
+
+Route::get('/deleteeloquentwithdestroy', function() {
+    //Otra manera de hacerl el borrado simple y múltiple
+    Post::destroy(2);
+    Post::destroy([4,5]);
+    Post::where('is_admin',0)->delete();
+});
+
+

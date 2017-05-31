@@ -408,3 +408,19 @@ Route::get('/basicinsert2', function() {
     Post::where('id',2)->where('is_admin',0)->
     update(['title'=>'SERTEZA--------','body'=>'I love this Company']);
 });</code>
+<br>
+<p><strong>Borrando datos usando Eloquent</strong></p>
+<br>
+<code>Route::get('/deleteeloquent', function() {
+    $post=Post::find(1);
+    $post->delete();
+});
+
+Route::get('/deleteeloquentwithdestroy', function() {
+    //Otra manera de hacerl el borrado simple y múltiple
+    Post::destroy(2);
+    Post::destroy([4,5]);
+    Post::where('is_admin',0)->delete();
+});
+</code>
+<br>
