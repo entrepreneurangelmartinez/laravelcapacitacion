@@ -354,3 +354,12 @@ Route::get('/find', function() {
     return $post->title;
 });
 </code>
+<br>
+<p><strong>Lectura y búsqueda con restricciones</strong></p>
+<br>
+<code>Route::get('/findwhere', function() {
+    $post=Post::where('id',2)->orderBy('id','desc')->take(1)->get();
+
+    // return var_dump($post);
+    return $post;
+});</code>
