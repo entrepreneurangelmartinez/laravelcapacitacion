@@ -379,3 +379,24 @@ Route::get('/basicinsert2', function() {
     $post->body="Eloquent is amazin ORM for LARAVEL";
     $post->save();
 });</code>
+<br>
+<p><strong>Creación de datos y configuración de la asignación de masa</strong></p>
+<br>
+<p>Hay un caso especial al momento de crear directamente datos, debido a la persistencia que se tiene que configurar como datos rellenables. Para resolver esto, se sobrescribe el comportamiento base en el modelo</p>
+<br>
+<p>Modelo</p>
+<br>
+<code> protected $fillable=
+    [
+        'title',
+        'body'
+    ];</code>
+<br>
+<p>Vista o Ruta</p>
+<br>
+<code>Route::get('/createmass', function() {
+    //Cuando nosotros queremos insertar algo como un array asociativo
+    // nos salde el error MassAssignmentException
+    //para reparar el error se modifica el modelo con la propiedad fillable
+    Post::create(['title'=>'the create method','body'=>'Learning with ISC. Angel Martínez ( Consultant in .NET and new technologies']);
+});</code>

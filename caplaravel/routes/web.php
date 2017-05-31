@@ -132,3 +132,11 @@ Route::get('/basicinsert2', function() {
     $post->body="Eloquent is amazin ORM for LARAVEL";
     $post->save();
 });
+
+
+Route::get('/createmass', function() {
+    //Cuando nosotros queremos insertar algo como un array asociativo
+    // nos salde el error MassAssignmentException
+    //para reparar el error se modifica el modelo con la propiedad fillable
+    Post::create(['title'=>'the create method','body'=>'Learning with ISC. Angel Martínez ( Consultant in .NET and new technologies']);
+});
