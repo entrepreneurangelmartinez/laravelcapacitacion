@@ -93,6 +93,7 @@ Route::get('deleted', function() {
     return $deleted;
 });
 
+// ------------Eloquent-----------
 Route::get('/readeloquent', function() {
     $posts=Post::all();
     foreach ($posts as $post) {
@@ -117,3 +118,17 @@ Route::get('/findwhere', function() {
     return $post;
 });
 
+
+Route::get('/basicinsert', function() {
+    $post=new Post;
+    $post->title="New Eloquent title insert";
+    $post->body="Eloquent is amazin ORM for LARAVEL";
+    $post->save();
+});
+
+Route::get('/basicinsert2', function() {
+    $post=Post::find(1);
+    $post->title="New Eloquent title insert";
+    $post->body="Eloquent is amazin ORM for LARAVEL";
+    $post->save();
+});
