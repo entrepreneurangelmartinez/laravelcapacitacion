@@ -400,3 +400,11 @@ Route::get('/basicinsert2', function() {
     //para reparar el error se modifica el modelo con la propiedad fillable
     Post::create(['title'=>'the create method','body'=>'Learning with ISC. Angel Martínez ( Consultant in .NET and new technologies']);
 });</code>
+<br>
+<p><strong>Actualizando con Eloquent</strong></p>
+<br>
+<code>Route::get('/updateeloquent', function() {
+    //
+    Post::where('id',2)->where('is_admin',0)->
+    update(['title'=>'SERTEZA--------','body'=>'I love this Company']);
+});</code>
