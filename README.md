@@ -276,11 +276,11 @@ $table->integet('is_admin')->unsigned();
  $table->dropColumn('is_admin');
  </code>
 
- <br>
+<br>
 
- <p>Procedemos a ejecutar la migración</p>
- <br>
- <code>php artisan migrate</code>
+<p>Procedemos a ejecutar la migración</p>
+<br>
+<code>php artisan migrate</code>
 
 <br>
 <p>Definiendo valores por defecto</p>
@@ -423,4 +423,53 @@ Route::get('/deleteeloquentwithdestroy', function() {
     Post::where('is_admin',0)->delete();
 });
 </code>
+<br>
+<p><strong>Borrado suave / basura</strong></p>
+<p>Este tipo de borrado es lógico no a nivel de base de datos</p>
+<br>
+<p>El primer paso es importar el objeto de base de datos(contexto)</p>
+<br>
+<code>use Illuminate\Database\Eloquent\SoftDeletes;</code>
+<br>
+<p>Se pone una referencia de columna al modelo</p>
+<br>
+<code>
+    //Se incorpora la dependencia, sino no mapea hacia el arreglo
+    use SoftDeletes;
+    protected $date=['deleted_at'];</code>
+<br>
+<p>Se genera una nueva migración de base de datos</p>
+<code>php artisan make:migration add_deleted_at_column_to_posts_tables --table=posts</code>
+<br>
+<p>Se procede a integrar en la migración el campo de borrado suave</p>
+<br>
+<code>
+    public function up()
+    {
+        Schema::table('posts', function (Blueprint $table) {
+            $table->softDeletes();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('posts', function (Blueprint $table) {
+            $table->dropColumn('deleted_at');
+        });
+    }
+    </code>
+<br>
+<p>Ejecutamos nuestra migración</p>
+<br>
+<code>php artisan migrate</code>
+<p>Se genera una ruta nueva para hacer pruebas</p>
+<br>
+<code>Route::get('/softdeleted', function() {
+    Post::find(7)->delete();
+});</code>
 <br>

@@ -162,3 +162,8 @@ Route::get('/deleteeloquentwithdestroy', function() {
 });
 
 
+Route::get('/softdeleted', function() {
+    Post::find(7)->delete();
+});
+
+
