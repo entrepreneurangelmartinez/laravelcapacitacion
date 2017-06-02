@@ -501,3 +501,13 @@ Route::get('/restoresfotdeleted', function() {
     Post::withTrashed()->where('is_admin',0)->restore();
 });
 </code>
+<br>
+<p><strong>Borrndo registro permanentemente</strong></p>
+<br>
+<code>
+Route::get('/forcedelete', function() {
+    //Probar con un registro con softdelete y uno sin el
+    Post::withTrashed()->where('id',7)->forceDelete();
+});
+</code>
+<br>

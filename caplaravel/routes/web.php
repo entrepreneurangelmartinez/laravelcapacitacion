@@ -189,3 +189,8 @@ Route::get('/restoresfotdeleted', function() {
 });
 
 
+Route::get('/forcedelete', function() {
+    //Probar con un registro con softdelete y uno sin el
+    Post::withTrashed()->where('id',7)->forceDelete();
+});
+
