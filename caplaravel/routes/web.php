@@ -167,3 +167,21 @@ Route::get('/softdeleted', function() {
 });
 
 
+Route::get('/readsoftdelete', function() {
+    //
+    // $post=Post::where('is_admin',0)->get();
+
+
+    //Devolviendo  los registros con y sin basura
+    // $post=Post::withTrashed()->get();
+
+    //Devolviendo solo los registros basura
+
+    $post=Post::onlyTrashed()->where('is_admin',0)->get();
+
+
+    return $post;
+});
+
+
+
