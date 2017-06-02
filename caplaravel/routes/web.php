@@ -184,4 +184,8 @@ Route::get('/readsoftdelete', function() {
 });
 
 
+Route::get('/restoresfotdeleted', function() {
+    Post::withTrashed()->where('is_admin',0)->restore();
+});
+
 

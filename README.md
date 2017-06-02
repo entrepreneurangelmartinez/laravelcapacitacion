@@ -494,3 +494,10 @@ Route::get('/readsoftdelete', function() {
 
 </code>
 <br>
+<p><strong>Restaurando elementos borrados / registros basura</strong></p>
+<br>
+<code>
+Route::get('/restoresfotdeleted', function() {
+    Post::withTrashed()->where('is_admin',0)->restore();
+});
+</code>
