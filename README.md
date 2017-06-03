@@ -553,5 +553,19 @@ Route::get('/user/post/{id}', function($id) {
 </code>
 
 <br>
+<p><strong>Relación uno a uno 1:1 -Relación inversa-</strong></p>
+<br>
+<p>Se modifica el modelo de la otra relación para ser mapeado e invocado</p>
+<br>
+<code>
+public function user(){
+        return $this->belongsTo('App\User');
+    }
+</code>
 
+<br>
+<code>//Relación uno a uno (Relación inversa)
+Route::get('/post/{id}/user', function($id) {
+   return Post::find($id)->user;
+});</code>
 
