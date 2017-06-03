@@ -502,7 +502,7 @@ Route::get('/restoresfotdeleted', function() {
 });
 </code>
 <br>
-<p><strong>Borrndo registro permanentemente</strong></p>
+<p><strong>Borrando registro permanentemente</strong></p>
 <br>
 <code>
 Route::get('/forcedelete', function() {
@@ -511,3 +511,47 @@ Route::get('/forcedelete', function() {
 });
 </code>
 <br>
+<h1>Relaciones en Eloquent</h1>
+<br>
+<p><strong>Relación uno a uno 1:1</strong></p>
+<br>
+<p>Se agrega el identificador de la tabla y se anexa a la tabla actual en dado caso que no exista en la estructura actual.
+</p>
+<br>
+<p>Tomaremos como base que un usuario puede tener un solo post</p>
+<br>
+<p>Se crea una migración añadiendo user_id del modelo User.php</p>
+<br>
+<code>
+$table->integer('user_id')->unsigned(); 
+ $table->dropColumn('user_id'); 
+</code>
+<br>
+<p>Es importante tener registros en la tabla User</p>
+<br>
+<p>Procedemos a modificar el modelo de nuestro Post</p>
+<br>
+<code>
+public function post()
+    {
+        return $this->hasOne('App\Post');
+    }
+</code>
+<br>
+<p>Generamos una ruta de prueba</p>
+<p>Dentro de ella colocamos la importación del modelo a relacionar</p>
+<code>
+use App\User;
+
+
+//------------Eloquent ( Relaciones)--------
+
+//Relación uno a uno
+Route::get('/user/post/{id}', function($id) {
+   return User::find($id)->post;
+});
+</code>
+
+<br>
+
+

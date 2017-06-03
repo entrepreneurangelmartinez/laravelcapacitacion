@@ -1,5 +1,6 @@
 <?php
 use App\Post;
+use App\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -192,5 +193,13 @@ Route::get('/restoresfotdeleted', function() {
 Route::get('/forcedelete', function() {
     //Probar con un registro con softdelete y uno sin el
     Post::withTrashed()->where('id',7)->forceDelete();
+});
+
+
+//------------Eloquent ( Relaciones)--------
+
+//Relación uno a uno
+Route::get('/user/post/{id}', function($id) {
+   return User::find($id)->post;
 });
 

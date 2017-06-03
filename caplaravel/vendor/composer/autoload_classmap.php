@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'AddDeletedAtColumnToPostsTables' => $baseDir . '/database/migrations/2017_06_01_044439_add_deleted_at_column_to_posts_tables.php',
     'AddIsAdminColumnToPostsTable' => $baseDir . '/database/migrations/2017_05_20_125203_add_is_admin_column_to_posts_table.php',
+    'AddUserIdColumnToPostTable' => $baseDir . '/database/migrations/2017_06_03_113821_add_user_id_column_to_post_table.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
