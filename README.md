@@ -568,4 +568,22 @@ public function user(){
 Route::get('/post/{id}/user', function($id) {
    return Post::find($id)->user;
 });</code>
+<br>
+<p><strong>Relación uno a muchos 1:n</strong></p>
+<p> Se procede a modificar la relación tal cual debe ser, donde hay uno y mapeara muchos.
+<br>
+<code>
+public function posts(){
+        return $this->hasMany('App\Post');
+    }
 
+//Relación uno a muchos
+Route::get('/postonetomany', function() {
+    //
+});
+$user=User::find(1);
+foreach($user->posts as $post)
+{
+    echo $post->title . ' <br> ';
+}
+</code>

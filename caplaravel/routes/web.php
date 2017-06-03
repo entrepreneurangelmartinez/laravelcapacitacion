@@ -212,3 +212,13 @@ Route::get('/user/{id}/post', function($id) {
 Route::get('/post/{id}/user', function($id) {
    return Post::find($id)->user;
 });
+
+//Relación uno a muchos
+Route::get('/postonetomany', function() {
+    //
+});
+$user=User::find(1);
+foreach($user->posts as $post)
+{
+    echo $post->title . ' <br> ';
+}
