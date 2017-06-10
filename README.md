@@ -630,3 +630,35 @@ e --create=role_user</code>
         });
     }
 </code>
+<br>
+<p>Se procede a poner datos de prueba en las tablas relacionales para realizar pruebas</p>
+<br>
+<p>Se procede a definir la relación  en base a las entidades fuertes y la pivote</p>
+
+<p>En el modelo user.php</p>
+<br>
+<code>
+public function roles(){
+        return $this->belongsToMany('App\Role');
+    }
+</code>
+<br>
+<p>En web.php</p>
+<br>
+<code>
+Route::get('/user/{id}/role', function($id) {
+    //
+    // $user=User::find($id);
+    
+    //
+    // foreach ($user->roles as $role) {
+    //     # code...
+    //     return $role->name;
+    // }
+
+    //usando encadenamiento en base a la relación
+    $user=User::find($id)->roles()->orderBy('id','desc')->get();
+
+    return $user;
+});
+</code>

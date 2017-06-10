@@ -222,3 +222,23 @@ Route::get('/postonetomany', function() {
 // {
 //     echo $post->title . ' <br> ';
 // }
+
+//Relaciones muchos a muchos
+
+
+Route::get('/user/{id}/role', function($id) {
+    //
+    // $user=User::find($id);
+    
+    //
+    // foreach ($user->roles as $role) {
+    //     # code...
+    //     return $role->name;
+    // }
+
+    //usando encadenamiento en base a la relación
+    $user=User::find($id)->roles()->orderBy('id','desc')->get();
+
+    return $user;
+});
+
