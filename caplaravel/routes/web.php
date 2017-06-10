@@ -217,8 +217,8 @@ Route::get('/post/{id}/user', function($id) {
 Route::get('/postonetomany', function() {
     //
 });
-$user=User::find(1);
-foreach($user->posts as $post)
-{
-    echo $post->title . ' <br> ';
-}
+// $user=User::find(1);
+// foreach($user->posts as $post)
+// {
+//     echo $post->title . ' <br> ';
+// }

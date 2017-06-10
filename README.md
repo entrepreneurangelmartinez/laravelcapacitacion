@@ -587,3 +587,46 @@ foreach($user->posts as $post)
     echo $post->title . ' <br> ';
 }
 </code>
+<br>
+<p><strong>Relación muchos a muchos n:m</strong></p>
+<br>
+<p>Primero generamos un modelo como en el siguiente ejemplo:</p>
+<br>
+<code>php artisan make:model Role -m</p>
+<p>Para que laravel entienda este tipo de relación hay que seguir ciertas convenciones</p>
+<p> Se generar una tabla pivote con los nombres en singular y orden alfabetico de ambas tablas</p>
+<p> Ejemplo: tabla1: users - tabla2: roles </p>
+<p> Se colocaría de la siguiente manera: role_user </p>
+<br>
+<p>Procedemos a generar la migración para la tabla pivote</p>
+<br>
+<code>php artisan make:migration create_users_roles_tabl
+e --create=role_user</code>
+
+<br>
+<p>Migración create roles</p>
+<br>
+<code>
+ public function up()
+    {
+        Schema::create('roles', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->timestamps();
+        });
+    }
+</code>
+<br>
+<p>Migración tabla pivote</p>
+<br>
+<code>
+ public function up()
+    {
+        Schema::create('role_user', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('role_id');
+            $table->integer('user_id');
+            $table->timestamps();
+        });
+    }
+</code>
